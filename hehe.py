@@ -2,7 +2,7 @@ from telebot import TeleBot
 import random, os, func
 import telebot
 
-bot = TeleBot('7604409864:AAHUpDELo8wSGNuqgPS9XskyVk0EsGWagTA')
+bot = TeleBot('heheheheeheh')
 
 
 
