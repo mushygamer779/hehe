@@ -1,7 +1,8 @@
 from telebot import TeleBot
-import random, os
+import random, os, func
 
 bot = TeleBot('7604409864:AAHUpDELo8wSGNuqgPS9XskyVk0EsGWagTA')
+
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -11,9 +12,7 @@ def start(message):
 
 @bot.message_handler(commands=['help'])
 def start(message):
-    bot.send_message(message.chat.id, 'use /throw_away to know how to throw away certain stuff use dont_throw to see what happens to the surroundings if you throw a  certain thing in trash')
-
-
+    bot.send_message(message.chat.id, 'use /throw_away to know how to throw away certain stuff use dont_throw to see what happens to the surroundings if you throw a  certain thing in trash use daily_quest to know your daily quests and daily quest complete to show that you completed the quest')
 
 
 
@@ -23,8 +22,9 @@ def start(message):
         mes = message.text.split()
         if mes[1] == 'batteries':
             bot.reply_to(message, 'here are places of places that recycle batteries: https://www.google.com.tr/maps/search/recycle+batteries/@31.1673472,8.8444377,3z?entry=ttu&g_ep=EgoyMDI1MDQxNi4xIKXMDSoASAFQAw%3D%3D')
-        '''elif mes[2] == 'home lamp':
-            bot.reply_to(message, 'fir')   '''             
+        elif mes[2] == 'home lamp':
+            bot.reply_to(message, 'first disassemble the lamp recycly the battery and put everything else in a bag')     
+       
     except:
         bot.reply_to(message, 'it has to be throw_away and the thing you want to throw through space')
 
@@ -37,6 +37,10 @@ def start(message):
             bot.reply_to(message, 'this is what happens when you dont recycle batteries')
             with open('photos//' + random.choice(os.listdir('photos')), 'rb') as f:  
                 bot.send_photo(message.chat.id, f) 
+        '''elif mes_2[1] == 'home lamp':
+            bot.reply_to(message, 'this is what happens when you dont properly throw away home lapms')
+            with open('photos//' + random.choice(os.listdir('photos')), 'rb') as f:  
+                bot.send_photo(message.chat.id, f) '''
     
     except:
         bot.reply_to(message, 'it has to be dont_throw and the thing you want to throw through space')     
