@@ -1,7 +1,25 @@
 from telebot import TeleBot
 import random, os, func
+import telebot
 
 bot = TeleBot('7604409864:AAHUpDELo8wSGNuqgPS9XskyVk0EsGWagTA')
+
+
+
+
+bot.delete_my_commands(scope=None, language_code=None)
+
+bot.set_my_commands(
+commands = [    
+    telebot.types.BotCommand("/throw_away","how to throw away"), 
+    telebot.types.BotCommand("/dont_throw","what happens when you dont properly throw away trash"),   
+    telebot.types.BotCommand("/help","helps")                     
+            ],
+                )
+
+# check command
+cmd = bot.get_my_commands(scope=None, language_code=None)
+print([c.to_json() for c in cmd])
 
 
 @bot.message_handler(commands=['start'])
@@ -12,7 +30,7 @@ def start(message):
 
 @bot.message_handler(commands=['help'])
 def start(message):
-    bot.send_message(message.chat.id, 'use /throw_away to know how to throw away certain stuff use dont_throw to see what happens to the surroundings if you throw a  certain thing in trash use daily_quest to know your daily quests and daily quest complete to show that you completed the quest')
+    bot.send_message(message.chat.id, 'use /throw_away to know how to throw away certain stuff use /dont_throw to see what happens to the surroundings if you throw a  certain thing in trash ')
 
 
 
