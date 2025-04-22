@@ -11,8 +11,8 @@ bot.delete_my_commands(scope=None, language_code=None)
 
 bot.set_my_commands(
 commands = [    
-    telebot.types.BotCommand("/throw_away","how to throw away"), 
-    telebot.types.BotCommand("/dont_throw","what happens when you dont properly throw away trash"),   
+    telebot.types.BotCommand("/how_to_throw_away","how to throw away"), 
+    telebot.types.BotCommand("/what_if_i_wont","what happens when you dont properly throw away trash"),   
     telebot.types.BotCommand("/help","helps")                     
             ],
                 )
@@ -24,17 +24,17 @@ print([c.to_json() for c in cmd])
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.send_message(message.chat.id, 'this bot is made to tell you how to throw stuff away use /throw_away and what you want to throw away')
+    bot.send_message(message.chat.id, 'this bot is made to tell you how to throw stuff away use /how_to_throw_away and what you want to throw away')
 
 
 
 @bot.message_handler(commands=['help'])
 def start(message):
-    bot.send_message(message.chat.id, 'use /throw_away to know how to throw away certain stuff use /dont_throw to see what happens to the surroundings if you throw a  certain thing in trash ')
+    bot.send_message(message.chat.id, 'use /how_to_throw_away to know how to throw away certain stuff use what_if_i_wont to see what happens to the surroundings if you throw a  certain thing in trash ')
 
 
 
-@bot.message_handler(commands=['throw_away'])
+@bot.message_handler(commands=['how_to_throw_away'])
 def start(message):
     try:
         mes = message.text.split()
@@ -44,10 +44,10 @@ def start(message):
             bot.reply_to(message, 'first disassemble the lamp recycly the battery and put everything else in a bag')     
        
     except:
-        bot.reply_to(message, 'it has to be throw_away and the thing you want to throw through space')
+        bot.reply_to(message, 'it has to be how_to_throw_away and the thing you want to throw through space')
 
 
-@bot.message_handler(commands=['dont_throw'])
+@bot.message_handler(commands=['what_if_i_wont'])
 def start(message):
     try:
         mes_2 = message.text.split()
@@ -61,7 +61,7 @@ def start(message):
                 bot.send_photo(message.chat.id, f) '''
     
     except:
-        bot.reply_to(message, 'it has to be dont_throw and the thing you want to throw through space')     
+        bot.reply_to(message, 'it has to be what_if_i_wont and the thing you want to throw through space')     
 
 
 
