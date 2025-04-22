@@ -5,8 +5,18 @@ bot = TeleBot('7604409864:AAHUpDELo8wSGNuqgPS9XskyVk0EsGWagTA')
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.send_message(message.chat.id, 'this bot is made to tell you how to throw stuff away use /hw.tu and what you want to throw away')
-    
+    bot.send_message(message.chat.id, 'this bot is made to tell you how to throw stuff away use /throw_away and what you want to throw away')
+
+
+
+@bot.message_handler(commands=['help'])
+def start(message):
+    bot.send_message(message.chat.id, 'use /throw_away to know how to throw away certain stuff use dont_throw to see what happens to the surroundings if you throw a  certain thing in trash')
+
+
+
+
+
 @bot.message_handler(commands=['throw_away'])
 def start(message):
     try:
